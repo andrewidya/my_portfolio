@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'core',
     'photologue',
     'content',
+    'mptt',
 )
 
 MIDDLEWARE_CLASSES = (
