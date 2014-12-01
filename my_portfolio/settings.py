@@ -18,6 +18,10 @@ TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
 
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+SITE_ID = '1'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -43,10 +47,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    'django.contrib.sites',
+    #'django.contrib.flatpages',
     'photologue',
     'content',
     'mptt',
+    'pages',
+    'comments',
+    'south',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -95,3 +103,4 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'suit/static/'),
         (os.path.join(BASE_DIR, 'content/static/')),
     )
 STATIC_URL = '/static/'
+GLOBAL_THEMES = ''

@@ -1,0 +1,8 @@
+{% autoescape off %}
+	{% for post in post_list %}
+		<h1>{{ post.title }}</h1>
+		<p>{{ post.content }}</p>
+		<p>Createy by {{ post.author }} at {{ post.pub_date }} on {{ post.tag }} </p>
+	{% endfor %}
+	<p>OK</p>
+{% endautoescape %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ document_title }}</title>
+</head>
+<body>
+	{% load menu_tags %}
+	{% show_menus %}
+	{% if contents %}
+		<h1><a href="#">{{ contents.title }}</a></h1>
+		<p>{{ contents.content|safe }} jancok</p>
+		<p><a href="{{ contents.permalink }}">Read more</a></p>
+		<small>create by {{ contents.author}} on {{ contents.pub_date }}</small>
+	{% endif %}
+</body>
+</html>

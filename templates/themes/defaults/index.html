@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>{{ document_title }}</title>
+</head>
+<body>
+	{% load menu_tags %}
+	{% show_menus %}
+
+	{% if contents %}
+		{% for post in contents %}
+			<h1><a href="{% url 'content:single_post_show' 'blog/computer' post.pub_date|date:'Y' post.pub_date|date:'m' post.id post.permalink %}">{{ post.title }}</a></h1>
+			<p>{{ post.content|safe|truncatewords:125 }}</p>
+			<p><a href="{{ post.permalink }}">Read more</a></p>
+			<small>create by {{ post.author}} on {{ post.pub_date }}</small>
+		{% endfor %}
+	{% endif %}
+</body>
+</html>

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from pages.models import Page
 
 # Create your models here.
 
@@ -12,19 +13,19 @@ class Tag(models.Model):
 
 class Post(models.Model):
 	title = models.CharField(max_length=200, verbose_name="Title")
-	slug_title = models.SlugField(verbose_name="Slug")
+	permalink = models.SlugField(verbose_name="Permalink")
 	content = models.TextField()
 	author = models.ForeignKey(User)
 	pub_date = models.DateTimeField(verbose_name="Date Published")
 	modified_date = models.DateTimeField(auto_now=True, verbose_name="Modified")
 	tag = models.ManyToManyField(Tag, blank=True)
 	pub_status = models.BooleanField(verbose_name="Published")
+	page = models.ForeignKey(Page, verbose_name="Page")
 
 	def __unicode__(self):
 		return self.title
 
 	def save(self, *args, **kwargs):
 		if not self.id:
-			self.slug_title = slugify(self.title)
-
+			self.permalink = slugify(self.title)
 		super(Post, self).save(*args, **kwargs)
