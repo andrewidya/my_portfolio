@@ -38,7 +38,7 @@ else:
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 
