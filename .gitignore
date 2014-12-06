@@ -2,3 +2,7 @@ static/
 my_portfolio/__pycache__/
 *.pyc
 *__pycache__
+portfolio.sublime-project
+portfolio.sublime-workspace
+media/
+db.sqlite3

@@ -3,14 +3,23 @@ from django.contrib.auth.models import User
 from mptt.models import MPTTModel, TreeForeignKey
 from django.template.defaultfilters import slugify
 from django.utils.encoding import iri_to_uri
+from django.core.urlresolvers import get_script_prefix
 
 # Create your models here.
+MENU_CHOICES = (
+	('HEAD', 'Head Navigation'),
+	('SIDE', 'Sidebar Navigation'),
+	('BOTTOM', 'Bottom Navigation'),
+)
+
 
 class Page(MPTTModel):
 	name = models.CharField(max_length=200, unique=True, verbose_name="Page")
-	parent = TreeForeignKey("self", null=True, blank=True, related_name="childern", verbose_name="Parent")
+	parent = TreeForeignKey("self", null=True, blank=True, related_name="childern", verbose_name="Parent", help_text="Leave it empty if your menu is going to be root menu")
 	author = models.ForeignKey(User)
 	permalink = models.SlugField(verbose_name="Url Link", db_index=True)
+	menu = models.CharField(max_length=18, choices=MENU_CHOICES, verbose_name="Assigned To Menu", help_text="Set this link to head, side or \
+		bottom within your page")
 
 	def __unicode__(self):
 		return self.name
