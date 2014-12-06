@@ -75,10 +75,10 @@ WSGI_APPLICATION = 'my_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-#if not os.environ.get("HOME") == '/home/andre':
-#    # Parse database configuration from $DATABASE_URL
-#    import dj_database_url
-#    DATABASES['default'] = dj_database_url.config()
+if not os.environ.get("HOME") == '/home/andre':
+    # Parse database configuration from $DATABASE_URL
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
 
 DATABASES = {
     #'default': {
