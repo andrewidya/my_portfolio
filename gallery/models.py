@@ -25,6 +25,7 @@ class Album(models.Model):
 
     images.allow_tags = True
 
+
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
 
@@ -70,6 +71,8 @@ class Image(models.Model):
     def tags_(self):
     	lst = [x.tag for x in self.tags.all()]
     	return ", ".join(lst)
+    	lst = [x for x in Tag.objects.filter(image=self)]
+    	return str(join(lst, ','))
 
     def thumbnail(self):
         return """<a href="/media/%s"><img border="0" alt="" src="/media/%s" width="150" /></a>""" % (

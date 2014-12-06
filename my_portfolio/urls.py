@@ -1,5 +1,9 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+<<<<<<< HEAD
+=======
+
+>>>>>>> a037bfd5f2de04bce05e8c344e66f321379e1413
 from django.contrib import admin
 from filebrowser import sites
 

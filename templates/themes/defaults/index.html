@@ -8,6 +8,7 @@
 		{% for entry in post %}
 			<h1><a href="{% url 'content:post' entry.page.permalink entry.pub_date|date:'Y' entry.pub_date|date:'m' entry.id entry.permalink %}">{{ entry.title }}</a></h1>
 			<p>{{ entry.content|safe|truncatewords:150 }}</p>
+			<p>{{ entry.content|safe }}</p>
 			<p><a href="{% url 'content:post' entry.page.permalink entry.pub_date|date:'Y' entry.pub_date|date:'m' entry.id entry.permalink %}">Read More</a></p>
 			<small>Created by {{ entry.author }}</small>
 		{% endfor %}

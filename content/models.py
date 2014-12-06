@@ -19,6 +19,7 @@ class Post(models.Model):
 	author = models.ForeignKey(User)
 	pub_date = models.DateField(verbose_name="Date Published")
 	modified_date = models.DateField(auto_now=True, verbose_name="Modified")
+	modified_date = models.DateField(auto_now_add=True, verbose_name="Modified")
 	tag = models.ManyToManyField(Tag, blank=True)
 	pub_status = models.BooleanField(verbose_name="Published")
 	page = models.ForeignKey(Page)
@@ -30,3 +31,7 @@ class Post(models.Model):
 		if not self.id:
 			self.permalink = slugify(self.title)
 		super(Post, self).save(*args, **kwargs)
+
+	def get_absolute_url(self):
+		from content import views
+		return reverse(views.single_post)
