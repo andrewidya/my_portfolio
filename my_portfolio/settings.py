@@ -48,12 +48,10 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    #'django.contrib.flatpages',
-    'photologue',
-    'content',
     'mptt',
+    'content',
     'pages',
-    'comments',
+    'gallery',
     'south',
 )
 
@@ -104,3 +102,5 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'suit/static/'),
     )
 STATIC_URL = '/static/'
 GLOBAL_THEMES = ''
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = 'http://127.0.0.1:8000/media/'

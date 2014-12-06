@@ -6,8 +6,8 @@ from mptt.admin import MPTTModelAdmin
 
 class PageAdmin(MPTTModelAdmin):
 	fieldsets = [
-		('Page Information', {'fields': ['name', 'parent', 'author']}),
+		('Page Information', {'fields': ['name', 'parent', 'author', 'menu']}),
 	]
-	list_display = ['name', 'author', 'permalink']
+	list_display = ['name', 'author', 'permalink', 'menu']
 
 admin.site.register(Page, PageAdmin)

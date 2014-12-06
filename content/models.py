@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from pages.models import Page
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -16,11 +17,11 @@ class Post(models.Model):
 	permalink = models.SlugField(verbose_name="Permalink")
 	content = models.TextField()
 	author = models.ForeignKey(User)
-	pub_date = models.DateTimeField(verbose_name="Date Published")
-	modified_date = models.DateTimeField(auto_now=True, verbose_name="Modified")
+	pub_date = models.DateField(verbose_name="Date Published")
+	modified_date = models.DateField(auto_now_add=True, verbose_name="Modified")
 	tag = models.ManyToManyField(Tag, blank=True)
 	pub_status = models.BooleanField(verbose_name="Published")
-	page = models.ForeignKey(Page, verbose_name="Page")
+	page = models.ForeignKey(Page)
 
 	def __unicode__(self):
 		return self.title
@@ -29,3 +30,7 @@ class Post(models.Model):
 		if not self.id:
 			self.permalink = slugify(self.title)
 		super(Post, self).save(*args, **kwargs)
+
+	def get_absolute_url(self):
+		from content import views
+		return reverse(views.single_post)

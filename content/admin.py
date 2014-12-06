@@ -10,7 +10,7 @@ class PostAdmin(admin.ModelAdmin):
 	]
 
 	list_filter = ['title', 'author', 'pub_date']
-	list_display = ['title', 'author', 'pub_date', 'pub_status', 'modified_date', 'permalink', 'page']
+	list_display = ['title', 'author', 'pub_date', 'pub_status', 'modified_date', 'permalink']
 	search_fields = ['title', 'author', 'pub_date', 'pub_status']
 	filter_horizontal = ['tag',]
 	date_hierarchy = 'pub_date'

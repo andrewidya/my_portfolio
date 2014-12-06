@@ -1,6 +1,6 @@
-from my_portfolio.settings import GLOBAL_THEMES
+from django.conf import settings
 
-THEMES = GLOBAL_THEMES
+THEMES = settings.GLOBAL_THEMES
 
 def theme_loader(template):
 	if not THEMES:

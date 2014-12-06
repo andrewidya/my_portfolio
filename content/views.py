@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
 from content.models import Post, Tag
 from my_portfolio.manager.theme import theme_loader
@@ -9,24 +9,16 @@ from pages.models import Page
 def index(request):
     return HttpResponse("Hello, world. You're at the poll index.")
 
-def single_post(request, url, year, month, post_id, permalink):
-	content = Post.objects.get(id=post_id)
-	context = {'contents': content, 'document_title': content.title}
-	print(url)
-	print("single_post_method")
+def get_post(request, url, year, month, post_id, permalink):
+	post = Post.objects.get(id=post_id)
+	context = {'post': post, 'document_title': post.title}
 	template = theme_loader('single.html')
 	return render(request, template, context)
 
 def archive(request, url):
-	page = Page.objects.get(permalink__exact=url[:-1])
-	post = Post.objects.filter(page=page)
-	print(url)
+	page = get_object_or_404(Page, permalink=url)
 	print(page)
-	#print(post.page.permalink)
-	print("asu")
-	if not post:
-		return HttpResponse("Error, now content here")
-
-	context = {'contents': post}
-	template = theme_loader('index.html')
-	return render(request, template, context)
+	post = get_list_or_404(Post, page=page)
+	print(post)
+	context = {'post': post, 'document_title': str(page.name) + str(" Archives") }
+	return render(request, theme_loader('index.html'), context)
