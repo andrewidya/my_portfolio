@@ -36,11 +36,13 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 
 # Application definition
 
 INSTALLED_APPS = (
-    'suit',
+    #'suit',
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,6 +54,7 @@ INSTALLED_APPS = (
     'content',
     'pages',
     'gallery',
+    'userprofile',
     'south',
 )
 
@@ -72,10 +75,10 @@ WSGI_APPLICATION = 'my_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-if not os.environ.get("HOME") == '/home/andre/':
-    # Parse database configuration from $DATABASE_URL
-    import dj_database_url
-    DATABASES['default'] = dj_database_url.config()
+#if not os.environ.get("HOME") == '/home/andre':
+#    # Parse database configuration from $DATABASE_URL
+#    import dj_database_url
+#    DATABASES['default'] = dj_database_url.config()
 
 DATABASES = {
     #'default': {
@@ -85,9 +88,9 @@ DATABASES = {
 
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'aw_database',
-        'USER': 'andrewidya',
-        'PASSWORD': '324234150satriani',
+        'NAME': 'andrewidya-portfolio',
+        'USER': 'andre',
+        'PASSWORD': 'andre',
         'HOST': ''
     }
 }
@@ -97,7 +100,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Jakarta'
 
 USE_I18N = True
 
@@ -110,8 +113,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_ROOT = 'static'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'suit/static/'),
-        (os.path.join(BASE_DIR, 'content/static/')),
+STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'content/static/'),
     )
 STATIC_URL = '/static/'
 GLOBAL_THEMES = ''

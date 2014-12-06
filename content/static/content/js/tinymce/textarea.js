@@ -10,6 +10,8 @@ tinymce.init({
     toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image code",
     toolbar2: "print preview media | forecolor backcolor emoticons",
     image_advtab: true,
+    convert_urls: false,
+    relative_urls: false,
     templates: [
         {title: 'Test template 1', content: 'Test 1'},
         {title: 'Test template 2', content: 'Test 2'}

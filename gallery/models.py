@@ -18,6 +18,13 @@ class Album(models.Model):
     def __unicode__(self):
         return self.title
 
+    def images(self):
+        lst = [x.image.name for x in self.image_set.all()]
+        lst = ["<a href='/media/%s'><img src='/media/%s' width='150'></a>" % (x, x) for x in lst]
+        return ', '.join(lst)
+
+    images.allow_tags = True
+
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
 
@@ -61,8 +68,8 @@ class Image(models.Model):
         return "%s x %s" % (self.width, self.height)
 
     def tags_(self):
-    	lst = [x for x in Tag.objects.filter(image=self)]
-    	return str(join(lst, ','))
+    	lst = [x.tag for x in self.tags.all()]
+    	return ", ".join(lst)
 
     def thumbnail(self):
         return """<a href="/media/%s"><img border="0" alt="" src="/media/%s" width="150" /></a>""" % (

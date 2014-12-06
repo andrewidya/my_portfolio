@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
-from django.http import HttpResponse
+from django.http import Http404
 from content.models import Post, Tag
 from my_portfolio.manager.theme import theme_loader
 from pages.models import Page
@@ -17,8 +17,9 @@ def get_post(request, url, year, month, post_id, permalink):
 
 def archive(request, url):
 	page = get_object_or_404(Page, permalink=url)
-	print(page)
-	post = get_list_or_404(Post, page=page)
-	print(post)
+	try:
+		post = Post.objects.filter(page=page).filter(pub_status=True)
+	except Post.DoesNotExist:
+		raise Http404
 	context = {'post': post, 'document_title': str(page.name) + str(" Archives") }
 	return render(request, theme_loader('index.html'), context)

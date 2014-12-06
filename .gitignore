@@ -6,3 +6,4 @@ portfolio.sublime-project
 portfolio.sublime-workspace
 media/
 db.sqlite3
+*/migrations
