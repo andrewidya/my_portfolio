@@ -30,7 +30,11 @@ SITE_ID = '1'
 SECRET_KEY = 'y2coq%lk86_k&ta!twuus&#p2f%2mk(yynw@9@%ax7j0sxyzh3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+if not os.environ.get("HOME") == '/home/andre':
+    DEBUG = False
+else:
+    DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -75,11 +79,6 @@ WSGI_APPLICATION = 'my_portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-if not os.environ.get("HOME") == '/home/andre':
-    # Parse database configuration from $DATABASE_URL
-    import dj_database_url
-    DATABASES['default'] = dj_database_url.config()
-
 DATABASES = {
     #'default': {
     #    'ENGINE': 'django.db.backends.sqlite3',
@@ -94,6 +93,11 @@ DATABASES = {
         'HOST': ''
     }
 }
+
+if not os.environ.get("HOME") == '/home/andre':
+    # Parse database configuration from $DATABASE_URL
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
