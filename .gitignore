@@ -8,3 +8,5 @@ portfolio.sublime-workspace
 .gitignore
 requirements.txt
 content/*.pyc
+*/.sass-cache
+*.scssc

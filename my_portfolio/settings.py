@@ -35,7 +35,7 @@ SECRET_KEY = 'y2coq%lk86_k&ta!twuus&#p2f%2mk(yynw@9@%ax7j0sxyzh3'
 #   DEBUG = False
 #else:
 #    DEBUG = True
-#
+
 DEBUG = True
 
 TEMPLATE_DEBUG = True

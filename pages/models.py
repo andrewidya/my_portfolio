@@ -20,6 +20,11 @@ class Page(MPTTModel):
 	permalink = models.SlugField(verbose_name="Url Link", db_index=True)
 	menu = models.CharField(max_length=18, choices=MENU_CHOICES, verbose_name="Assigned To Menu", help_text="Set this link to head, side or \
 		bottom within your page")
+	order_number = models.IntegerField(verbose_name="Order Priority", help_text="Set how your menu will ordered, put higher number \
+		for top priority")
+
+	class MPTTMeta:
+		order_insertion_by = ['-order_number']
 
 	def __unicode__(self):
 		return self.name
@@ -32,9 +37,6 @@ class Page(MPTTModel):
 				self.permalink = slugify(self.name)
 
 		super(Page, self).save(*args, **kwargs)
-
-	class MPTTMeta:
-		order_insertion_by = ['name']
 
 	def get_absolute_url(self):
 		# Handle script prefix manually because we bypass reverse()

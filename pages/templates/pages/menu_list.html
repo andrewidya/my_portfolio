@@ -1,6 +1,5 @@
 {% load mptt_tags %}
 {% if menu %}
-    <ul class="{{ menu_class }}">
         {% recursetree menu %}
             <li><a href="{% url 'content:archive' node.get_absolute_url %}">{{ node.name }}</a>
                 {% if not node.is_leaf_node %}
@@ -10,5 +9,4 @@
                 {% endif %}
             </li>
         {% endrecursetree %}
-    </ul>
 {% endif %}
