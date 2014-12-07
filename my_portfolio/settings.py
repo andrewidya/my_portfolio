@@ -31,10 +31,12 @@ SECRET_KEY = 'y2coq%lk86_k&ta!twuus&#p2f%2mk(yynw@9@%ax7j0sxyzh3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-if not os.environ.get("HOME") == '/home/andre':
-    DEBUG = False
-else:
-    DEBUG = True
+#if not os.environ.get("HOME") == '/home/andre':
+#   DEBUG = False
+#else:
+#    DEBUG = True
+#
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
