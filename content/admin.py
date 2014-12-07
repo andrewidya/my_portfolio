@@ -19,7 +19,7 @@ class PostAdmin(admin.ModelAdmin):
 		js = ('/static/content/js/tinymce/tinymce.min.js', '/static/content/js/tinymce/textarea.js',)
 
 	def save_model(self, request, obj, form, change):
-		obj.user = request.user
+		obj.author = request.user
 		obj.save()
 
 

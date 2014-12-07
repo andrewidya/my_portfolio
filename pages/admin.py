@@ -11,7 +11,7 @@ class PageAdmin(MPTTModelAdmin):
 	list_display = ['name', 'author', 'permalink', 'menu', 'order_number']
 
 	def save_model(self, request, obj, form, change):
-		obj.user = request.user
+		obj.author = request.user
 		obj.save()
 
 admin.site.register(Page, PageAdmin)
