@@ -5,7 +5,7 @@ from content import models
 
 class PostAdmin(admin.ModelAdmin):
 	fieldsets = [
-		('Post Content', {'fields': ['title', 'content', 'page', 'author']}),
+		('Post Content', {'fields': ['title', 'content', 'page']}),
 		('Date & Status Information', {'fields': ['pub_date', 'pub_status', 'tag']})
 	]
 
