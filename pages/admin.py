@@ -6,7 +6,7 @@ from mptt.admin import MPTTModelAdmin
 
 class PageAdmin(MPTTModelAdmin):
 	fieldsets = [
-		('Page Information', {'fields': ['name', 'parent', 'menu', 'order_number']}),
+		('Page Information', {'fields': ['name', 'parent', 'menu', 'order_number', 'author']}),
 	]
 	list_display = ['name', 'author', 'permalink', 'menu', 'order_number']
 
