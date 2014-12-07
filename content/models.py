@@ -16,7 +16,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=200, verbose_name="Title")
 	permalink = models.SlugField(verbose_name="Permalink")
 	content = models.TextField()
-	author = models.ForeignKey(User)
+	author = models.ForeignKey(User, null=True, blank=True)
 	pub_date = models.DateField(verbose_name="Date Published")
 	modified_date = models.DateField(auto_now=True, verbose_name="Modified")
 	modified_date = models.DateField(auto_now_add=True, verbose_name="Modified")
