@@ -38,7 +38,7 @@ else:
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://andrewidya-portfolio.herokuapp.com']
+ALLOWED_HOSTS = ['https://andrewidya-portfolio.herokuapp.com']
 
 AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 

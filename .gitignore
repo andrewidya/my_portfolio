@@ -5,3 +5,6 @@ db.sqlite3
 *migrations/
 portfolio.sublime-project
 portfolio.sublime-workspace
+.gitignore
+requirements.txt
+content/*.pyc
