@@ -5,14 +5,15 @@ from content import models
 
 class PostAdmin(admin.ModelAdmin):
 	fieldsets = [
-		('Post Content', {'fields': ['title', 'content', 'page']}),
-		('Date & Status Information', {'fields': ['pub_date', 'pub_status', 'tag']})
+		('Post Content', {'fields': ['title', 'content']}),
+		('Date & Status Information', {'fields': ['pub_date', 'pub_status', 'tag', 'category']})
 	]
 
 	list_filter = ['title', 'author', 'pub_date']
 	list_display = ['title', 'author', 'pub_date', 'pub_status', 'modified_date', 'permalink']
+	list_editable = ['pub_status']
 	search_fields = ['title', 'author', 'pub_date', 'pub_status']
-	filter_horizontal = ['tag',]
+	filter_horizontal = ['tag', 'category']
 	date_hierarchy = 'pub_date'
 
 	class Media:
@@ -22,6 +23,6 @@ class PostAdmin(admin.ModelAdmin):
 		obj.author = request.user
 		obj.save()
 
-
 admin.site.register(models.Tag)
+admin.site.register(models.Category)
 admin.site.register(models.Post, PostAdmin)

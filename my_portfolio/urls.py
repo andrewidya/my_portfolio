@@ -15,6 +15,10 @@ urlpatterns = patterns('',
     url(r'^', include('content.urls', namespace="content")),
 )
 
+urlpatterns += patterns('',
+    url(r'^', include('pages.urls', namespace="pages")),
+)
+
 if settings.DEBUG :
     urlpatterns += patterns('',
         (r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),

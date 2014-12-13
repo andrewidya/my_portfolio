@@ -6,7 +6,8 @@ from userprofile.models import UserProfile
 class UserProfileAdmin(admin.ModelAdmin):
 	fieldsets = [
 		('Profile Picture', {'fields': ['avatar']}),
-		('Home Information', {'fields': ['street', 'city', 'state', 'country']})
+		('Home Information', {'fields': ['street', 'city', 'state', 'country']}),
+		('About Yourself', {'fields': ['about']})
 	]
 	list_display = ['thumbnail', 'user_name']
 

@@ -19,6 +19,7 @@ class UserProfile(models.Model):
 	city = models.CharField(max_length=50, blank=True, null=True, verbose_name="City")
 	state = models.CharField(max_length=50, blank=True, null=True, verbose_name="State/Province")
 	country = models.CharField(max_length=50, blank=True, null=True, verbose_name="Country")
+	about = models.TextField()
 
 	def __unicode__(self):
 		return self.user.get_username()

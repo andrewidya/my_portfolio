@@ -1,4 +1,4 @@
-{% extends "content/base.html" %}
+{% extends "default/base.html" %}
 {% block title %}
 	<title>{{ document_title }}</title>
 {% endblock %}
@@ -20,7 +20,7 @@
 				<h2>{{ post.title }}</h2>
 				<ul class="no_bullet inline">
 					<li><small><i class="fa fa-pencil"></i> {{ post.author.get_full_name }} </small></li>
-					<li><small><i class="fa fa-calendar"></i> {{ post.pub_date|date:'Y' }}</small></li>
+					<li><small><i class="fa fa-calendar"></i> {{ post.pub_date|date:'F' }}, {{ post.pub_date|date:'Y' }}</small></li>
 				</ul>
 			</div>
 		</div>

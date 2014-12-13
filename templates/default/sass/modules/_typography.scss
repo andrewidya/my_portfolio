@@ -1,5 +1,7 @@
 @import "global-var";
 
+$base-font-family: "Open Sans", "Helvetica", Helvetica, sans-serif !default;
+
 // Default setting for paragraph style
 $paragraph-font-family: "Open Sans", "Helvetica", Helvetica, sans-serif !default;
 $paragraph-font-size: 1em !default;
@@ -116,6 +118,12 @@ small {
 	line-height: $small-line-height;
 	margin-bottom: 1.828em;
 	margin-top: 1.828em;
+}
+
+span {
+	font-family: $base-font-family;
+	font-weight: 300;
+	line-height: $small-line-height;
 }
 
 a {

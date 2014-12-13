@@ -3,10 +3,12 @@ from content import views
 
 
 urlpatterns = patterns('',
-	url(r'^(?P<url>[a-z/]*)/(?P<year>\d{4})/(?P<month>\d{2})/(?P<post_id>\d+)/(?P<permalink>[-\w]+)/$', views.get_post, name="post"),
 	url(r'^$', views.index, name="index"),
+	url(r'^home/', views.index, name="index"),
+	url(r'^post/(?P<year>\d{4})/(?P<month>\d{2})/(?P<post_id>\d+)/(?P<permalink>[-\w]+)/$', views.get_post, name="post"),
+	url(r'^category/$', views.get_category, name="category"),
 )
 
 urlpatterns += patterns('',
-	url(r'(?P<url>[a-z/]*[^0-9])/$', views.archive, name="archive"),
+	url(r'^post/$', views.get_post_list, name="post_list"),
 )
