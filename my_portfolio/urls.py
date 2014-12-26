@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'my_portfolio.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    #url(r'^admin/filebrowser/', include('filebrowser.urls')),
+    #url(r'^admin/filebrowser/', include(site.get_urls)),
     url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^', include('content.urls', namespace="content")),
