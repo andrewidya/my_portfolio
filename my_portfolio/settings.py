@@ -49,7 +49,6 @@ AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 INSTALLED_APPS = (
     #'suit',
     'grappelli',
-    #'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -94,6 +93,17 @@ DATABASES = {
         'USER': 'andre',
         'PASSWORD': 'andre',
         'HOST': ''
+    }
+
+    #
+    # HEROKU configuration
+    #
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dec942crsm5l7s',
+        'USER': 'yeavwhhszhgnko',
+        'PASSWORD': 'X6l1meJuCT9xlAnciydgPXRlE9',
+        'HOST': 'ec2-54-235-99-22.compute-1.amazonaws.com'
     }
 }
 
