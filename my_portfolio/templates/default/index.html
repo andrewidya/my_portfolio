@@ -1,0 +1,56 @@
+{% extends "default/base.html" %}
+{% block title %}
+	<title>{{ document_title }}</title>
+{% endblock %}
+
+{% block main %}
+{% load menu_tags %}
+	<div class="topmenu">
+		<div class="wrapper">
+			<ul class="menu">
+				{% main_menu %}
+			</ul>
+		</div>
+	</div>
+
+	<div class="main_container" >
+		{% if post %}
+			<div class="content_wrapper">
+				<section>
+					{% for entry in post %}
+						<div class="article_content">
+							<header>
+								<div class="title_wrapper">
+									<h2 class="post_title"><a href="{% url 'content:post' entry.pub_date|date:'Y' entry.pub_date|date:'m' entry.id entry.permalink %}">{{ entry.title }}</a></h2>
+									<ul class="no_bullet inline">
+										<li><small><i class="fa fa-pencil"></i> {{ entry.author.get_full_name }} </small></li>
+										<li><small><i class="fa fa-calendar"></i> {{ entry.pub_date|date:'F' }}, {{ entry.pub_date|date:'Y' }}</small></li>
+									</ul>
+								</div>
+							</header>
+							<article>
+								<p>{{ entry.content|safe|truncatewords_html:85 }}</p>
+								<p><a href="{% url 'content:post' entry.pub_date|date:'Y' entry.pub_date|date:'m' entry.id entry.permalink %}" >Read More <i class="fa fa-share"></i></a></p>
+							</article>
+						</div>
+					{% endfor %}
+				<section>
+				<section>
+					<div class="paginator">
+						<span>
+							{% if post.has_previous %}
+								<a href="?page={{ post.previous_page_number }}">Previous</a>
+							{% endif %}
+							<span>
+								Page {{ post.number }} of {{ post.paginator.num_pages }}
+							</span>
+							{% if post.has_next %}
+								<a href="?page={{ post.next_page_number }}">Next</a>
+							{% endif %}
+						</span>
+					</div>
+				</section>
+			</div>
+		{% endif %}
+	</div>
+{% endblock main %}

@@ -1,0 +1,186 @@
+@import "global-var";
+
+$base-font-family: "Open Sans", "Helvetica", Helvetica, sans-serif !default;
+
+// Default setting for paragraph style
+$paragraph-font-family: "Open Sans", "Helvetica", Helvetica, sans-serif !default;
+$paragraph-font-size: 1em !default;
+$paragraph-line-height: 1.6 !default;
+$paragraph-margin-top: #{$paragraph-line-height}em !default;
+$paragraph-margin-bottom: #{$paragraph-line-height}em !default;
+$paragraph-font-weight: 300 !default;
+
+// Default setting for heading style
+$heading-font-family: "Open Sans", "Helvetica", Helvetica, sans-serif !default;
+$heading-modular-line-height: 1.6 !default;
+
+$h1-font-size: 3em !default;
+$h1-font-weight: 600 !default;
+$h1-line-height: 1.0625 !default;
+$h1-word-spacing: 0.0625em !default;
+$h2-font-size: 2.25em !default;
+$h2-font-weight: 400 !default;
+$h2-line-height: 1.266 !default;
+$h3-font-size: 1.5em !default;
+$h3-font-weight: 300 !default;
+$h3-line-height: 1.4 !default;
+$h4-font-size: 1.3125em !default;
+$h4-font-weight: 300 !default;
+$h4-line-height: 1.457 !default;
+$h5-font-size: 1.125em !default;
+$h5-font-weight: 500 !default;
+$h5-line-height: 1.533 !default;
+
+// Default setting for small text
+$small-font-size: .875em !default;
+$small-font-weight: normal !default;
+$small-line-height: 1.828 !default;
+
+// Default setting for blockquote
+$blockquote-font-size: 1em !default;
+$blockquote-font-weight: 300 !default;
+$blockquote-font-style: italic !default;
+
+$anchor-text-transform: none !default;
+$anchor-color: darken(aqua, 20%) !default;
+$anchor-color-hover: darken(aqua, 5%) !default;
+
+
+p, small, blockquote {
+	font-family: $paragraph-font-family;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	word-spacing: 0.09523em;
+}
+
+p {
+	font-size: $paragraph-font-size;
+	line-height: $paragraph-line-height;
+	margin-top: $paragraph-margin-top;
+	margin-bottom: $paragraph-margin-bottom;
+	font-weight: $paragraph-font-weight;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: $heading-font-family;
+	letter-spacing: 0.0002em;
+}
+
+h1 {
+	font-size: $h1-font-size;
+	font-weight: $h1-font-weight;
+	line-height: $h1-line-height;
+	margin-bottom: .533em;
+	margin-top: .533em;
+	letter-spacing: -1.9px;
+	word-spacing: $h1-word-spacing;
+}
+
+h2 {
+	font-size: $h2-font-size;
+	font-weight: $h2-font-weight;
+	line-height: $h2-line-height;
+	//margin-bottom: .711em;
+	//margin-top: .711em;
+	margin-top: 1.422em;
+	letter-spacing: -1.5px;
+}
+
+h3 {
+	font-size: $h3-font-size;
+	font-weight: $h3-font-weight;
+	line-height: $h3-line-height;
+	margin-bottom: 1.066em;
+	margin-top: 1.066em;
+	letter-spacing: -1px;
+}
+
+h4 {
+	font-size: $h4-font-size;
+	font-weight: $h4-font-weight;
+	line-height: $h4-line-height;
+	margin-bottom: 1.219em;
+	margin-top: 1.219em;
+}
+
+h5 {
+	font-size: $h5-font-size;
+	font-weight: $h5-font-weight;
+	line-height: $h5-line-height;
+	margin-bottom: 1.422em;
+	margin-top: 1.422em;
+}
+
+small {
+	font-size: $small-font-size;
+	font-weight: $small-font-weight;
+	line-height: $small-line-height;
+	margin-bottom: 1.828em;
+	margin-top: 1.828em;
+}
+
+span {
+	font-family: $base-font-family;
+	font-weight: 300;
+	line-height: $small-line-height;
+}
+
+a {
+	text-transform: $anchor-text-transform;
+	color: $anchor-color;
+	transition: all 0.35s ease-in-out;
+	text-decoration: none;
+
+	&:hover {
+		color: $anchor-color-hover;
+	}
+}
+
+blockquote {
+	font-size: $blockquote-font-size;
+	//font-style: $blockquote-font-style;
+	font-weight: $blockquote-font-weight;
+	line-height: $paragraph-line-height;
+	margin: $paragraph-margin-top;
+
+	&:before {
+		font-size: 1.5em;
+		line-height: 1.066;
+		content: "";
+	}
+
+
+	cite {
+		display: block;
+		font-size: .812em;
+		line-height: 1.969;
+		margin: 0;
+
+		&:before {
+			content: "- ";
+		}
+	}
+}
+
+ol, ol li, ul, ul li {
+	line-height: 1.6;
+	font-weight: 300;
+}
+
+ul {
+	margin-top: 1.6em;
+	margin-bottom: 1.6em;
+
+	&.no-bullet {
+		list-style-type: none;
+	}
+
+	&.circle {
+		list-style-type: circle;
+	}
+
+	&.square {
+		list-style-type: square;
+	}
+}

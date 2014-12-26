@@ -1,0 +1,32 @@
+// Requirements
+// ============
+
+@import "susy";
+@import "breakpoint";
+@import "my_functions";
+
+$phone-size: 320px 480px;
+$tablet-size: 481px 640px;
+$laptop-size: 640px 768px;
+$monitor-size: 768px;
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  global-box-sizing: border-box,
+);
+
+.main_container {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 1.25em;
+	@include clearfix;
+}
+
+.content_wrapper {
+	@include span(8);
+}
+
+
+
+@include load_module("grids");

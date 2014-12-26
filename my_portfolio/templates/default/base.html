@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	{% block header %}
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'content/css/main.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'content/css/font-awesome.min.css' %}">
+		{% block title %}
+			<title>None</title>
+		{% endblock title %}
+	{% endblock header%}
+</head>
+<body>
+	{% block main %}
+		<h1>Hello World</h1>
+	{% endblock %}
+	{% block footer %}
+		{% include 'default/footer.html' %}
+	{% endblock %}
+</body>
+</html>
