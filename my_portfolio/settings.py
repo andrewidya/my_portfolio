@@ -87,24 +87,24 @@ DATABASES = {
     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     #}
 
-    #'default': {
-    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': 'andrewidya-portfolio',
-    #    'USER': 'andre',
-    #    'PASSWORD': 'andre',
-    #    'HOST': ''
-    #}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'andrewidya-portfolio',
+        'USER': 'andre',
+        'PASSWORD': 'andre',
+        'HOST': ''
+    }
 
     #
     # HEROKU configuration
     #
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'dec942crsm5l7s',
-        'USER': 'yeavwhhszhgnko',
-        'PASSWORD': 'X6l1meJuCT9xlAnciydgPXRlE9',
-        'HOST': 'ec2-54-235-99-22.compute-1.amazonaws.com'
-    }
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'dec942crsm5l7s',
+    #    'USER': 'yeavwhhszhgnko',
+    #    'PASSWORD': 'X6l1meJuCT9xlAnciydgPXRlE9',
+    #    'HOST': 'ec2-54-235-99-22.compute-1.amazonaws.com'
+    #}
 }
 
 if not os.environ.get("HOME") == '/home/andre':
@@ -137,7 +137,3 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = 'http://127.0.0.1:8000/media/'
 SYSTEM_THEMES = ''
-
-#FILEBROWSER_MEDIA_ROOT = MEDIA_ROOT
-#FILEBROWSER_MEDIA_URL = MEDIA_URL
-#FILEBROWSER_DIRECTORY = '/media/'
