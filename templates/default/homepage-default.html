@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<title>Andre Widya Putra</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'content/css/main.css' %}">
+	<script type="text/javascript" src="{% static 'content/js/jquery.js' %}"></script>
+</head>
+<body>
+	<div class="main_container">
+		<h1>
+			<span class="slabtext">slabText – a jQuery plugin</span>
+			<span class="slabtext">for producing big, bold & responsive headlines responsive headlines responsive headlines</span>
+		</h1>
+	</div>
+
+	<script type="text/javascript" src="{% static 'content/js/slabtext/jquery.slabtext.js' %}"></script>
+	<script>
+
+	    // Function to slabtext the H1 headings
+	    function slabTextHeadlines() {
+	        $("h1").slabText({
+	            // Don't slabtext the headers if the viewport is under 380px
+	            "viewportBreakpoint":400
+	        });
+	    };
+
+	    // Called one second after the onload event for the demo (as I'm hacking the
+	    // fontface load event a bit here)
+
+	    // Please do not do this in a production environment - you should really use
+	    // google WebFont loader events (or something similar) for better control
+	    $(window).load(function() {
+	        // So, to recap... don't actually do this, it's nasty!
+	        setTimeout(slabTextHeadlines, 1000);
+	    });
+
+	</script>
+</body>
+</html>

@@ -49,6 +49,7 @@ AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 INSTALLED_APPS = (
     #'suit',
     'grappelli',
+    #'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -126,3 +127,7 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = 'http://127.0.0.1:8000/media/'
 SYSTEM_THEMES = ''
+
+#FILEBROWSER_MEDIA_ROOT = MEDIA_ROOT
+#FILEBROWSER_MEDIA_URL = MEDIA_URL
+#FILEBROWSER_DIRECTORY = '/media/'
