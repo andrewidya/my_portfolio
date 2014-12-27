@@ -131,7 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_ROOT = 'static'
-STATIC_URL = '/static/'
+STATIC_URL = 'https://andrewidya-portfolio.herokuapp.com/static/'
 STATICFILES_DIRS = (
         os.path.join(SERVER_BASE_DIR, 'static'),
     )
