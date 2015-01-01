@@ -1,0 +1,90 @@
+@import "modules/normalize";
+@import "modules/typography";
+@import "modules/my_functions";
+@import "breakpoint";
+
+
+.head-page {
+	height: 100vh;
+	background-color: #565248;
+}
+
+.content-wrapper {
+	@include breakpoint(320px 480px) {
+		width: 80%
+	}
+	margin: 0 auto;
+	text-align: center;
+	@extend %vertical_align;
+}
+
+.image-wrapper {
+	overflow: hidden;
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	margin: 0 auto;
+	img {
+		width: 150px;
+		height: auto;
+	}
+}
+
+.author-name {
+	@include breakpoint(320px 480px) {
+		font-size: 32px;
+	}
+	text-transform: uppercase;
+	color: white;
+	margin-bottom: 10px;
+	font-weight: 300;
+}
+
+.author-desc {
+	@include breakpoint(320px 480px) {
+		font-size: 16px;
+	}
+	font-size: 24px;
+	color: #aaaaaa;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	letter-spacing: 1px;
+}
+
+.button {
+	background-color: #009999;
+	color: white;
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 10px 25px;
+	margin-top: 10px;
+	border-radius: 3px;
+	box-shadow: 0px 2px 0 0 darken(#009999, 10%);
+	transition: all 0.35s ease-in-out;
+
+	&:hover {
+		background-color: #00b8b8;
+		color: white;
+	}
+}
+
+nav {
+	padding: 0;
+	margin: 0;
+}
+
+.top-nav {
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	li {
+		float: left;
+		margin-left: 20px;
+		a {
+			color: white;
+		}
+	}
+}

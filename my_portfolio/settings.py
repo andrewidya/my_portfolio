@@ -32,12 +32,12 @@ SECRET_KEY = 'y2coq%lk86_k&ta!twuus&#p2f%2mk(yynw@9@%ax7j0sxyzh3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-#if not os.environ.get("HOME") == '/home/andre':
-#   DEBUG = False
-#else:
-#    DEBUG = True
-
-DEBUG = True
+if os.environ.get("HOME") != '/home/andre':
+    import dj_database_url
+    DATABASES['default'] = dj_database_url.config()
+    DEBUG = False
+else:
+    DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -48,7 +48,6 @@ AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
 # Application definition
 
 INSTALLED_APPS = (
-    #'suit',
     'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -83,35 +82,21 @@ WSGI_APPLICATION = 'my_portfolio.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    #'default': {
-    #    'ENGINE': 'django.db.backends.sqlite3',
-    #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    #}
-
+    # DEVELOPMENT DATABASE
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'andrewidya-portfolio',
-        'USER': 'andre',
-        'PASSWORD': 'andre',
-        'HOST': ''
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 
-    #
-    # HEROKU configuration
-    #
+    # PRODUCTION DATABASE
     #'default': {
     #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #    'NAME': 'dec942crsm5l7s',
-    #    'USER': 'yeavwhhszhgnko',
-    #    'PASSWORD': 'X6l1meJuCT9xlAnciydgPXRlE9',
-    #    'HOST': 'ec2-54-235-99-22.compute-1.amazonaws.com'
+    #    'NAME': 'andrewidya-portfolio',
+    #    'USER': 'andre',
+    #    'PASSWORD': 'andre',
+    #    'HOST': ''
     #}
 }
-
-if not os.environ.get("HOME") == '/home/andre':
-    # Parse database configuration from $DATABASE_URL
-    import dj_database_url
-    DATABASES['default'] = dj_database_url.config()
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -130,10 +115,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_ROOT = 'static'
-STATIC_URL = 'https://andrewidya-portfolio.herokuapp.com/static/'
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/staticfiles/'
 STATICFILES_DIRS = (
-        os.path.join(SERVER_BASE_DIR, 'static'),
+        os.path.join(BASE_DIR, 'content/static'),
     )
 MEDIA_ROOT = os.path.join(SERVER_BASE_DIR, 'media/')
 MEDIA_URL = 'http://127.0.0.1:8000/media/'

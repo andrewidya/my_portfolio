@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<meta description="Portfolio site of Andry Widya Putra">
+	<title>Andry Widya Putra</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'content/css/homepage.css' %}">
+</head>
+<body>
+	<div class="head-page">
+		<nav>
+			<ul class="top-nav">
+				<li><a href="{% url 'content:post_list' %}">Blog</a></li>
+				<li><a href="{% url 'content:about' %}">About</a></li>
+			</ul>
+		</nav>
+		<div class="content-wrapper">
+			<div class="image-wrapper">
+				<img src="{% static 'content/img/author.jpg' %}" class="author-image">
+			</div>
+			<h1 class="author-name">Andry Widya Putra</h1>
+			<h2 class="author-desc">Web Developer & Design</h2>
+			<a href="#" class="button">Kick It</a>
+		</div>
+	</div>
+</body>
+</html>

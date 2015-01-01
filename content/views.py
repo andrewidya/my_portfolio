@@ -35,3 +35,6 @@ def get_category(request):
 	category = Category.objects.all()
 	context = {'categories': category}
 	return render(request, theme_resolver('index.html'), context)
+
+def about(request):
+    pass

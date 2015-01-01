@@ -1,0 +1,145 @@
+// Screen
+// ======
+
+@import "grids";
+@import "my_functions";
+@include load_module("style");
+
+body {
+	@include breakpoint($phone-size) {
+		font-size: 12px;
+	}
+	text-rendering: optimizeLegibility;
+}
+
+article {
+	margin-top: 1em;
+}
+
+.topmenu {
+	width: 100%;
+	height: 6em;
+	background-color: rgba(0, 153, 153, 255);
+
+	.menu {
+		@include breakpoint($phone-size) {
+			text-align: center;
+		}
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		& li {
+			display: inline-block;
+
+			& a {
+				@include breakpoint($phone-size) {
+					margin-right: 1.33em;
+				}
+
+				font-weight: 700;
+				text-transform: uppercase;
+				color: white;
+				transition: all 0.35s ease-in-out;
+				margin-right: 2em;
+
+				&:hover {
+					color: rgba(0, 184, 184, 255);
+				}
+			}
+		}
+	}
+}
+
+.article_content {
+	@include breakpoint($phone-size) {
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	margin: 0 auto 6em auto;
+
+	img {
+		border-radius: 5px;
+		box-shadow: 1px 1px 0.5em 0.2em silver;
+	}
+}
+
+.fullpage_container {
+	margin: 0 auto;
+	padding: 0;
+	width: 100%;
+}
+
+.single_post_title_container {
+	background-color: rgba(0, 184, 184, 255);
+	padding: 0;
+	margin: 0;
+}
+
+.wrapper {
+	max-width: 960px;
+	padding: 1.25em;
+	margin: 0 auto;
+	@extend %vertical_align;
+}
+
+.post_title_wrapper {
+	max-width: 960px;
+	padding: 1.25em;
+	margin: 0 auto;
+	color: white;
+	h2 {
+		margin-top: 0;
+		margin-bottom: 0.421em;
+		color: white;
+	}
+}
+
+.title_wrapper {
+	margin-bottom: 2em;
+	small {
+		color: rgba(128, 128, 128, 255);
+	}
+}
+
+.post_title {
+	font-size: 2.375em;
+	letter-spacing: -2px;
+	font-weight: 500;
+	& a {
+		color: rgba(85, 51, 17, 255);
+		transition: all 0.35s ease-in-out;
+
+		&:hover {
+			color: rgba(153, 77, 0, 255);
+		}
+	}
+}
+
+.no_bullet {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.inline {
+	& li {
+		display: inline-block;
+		margin-right: 1em;
+	}
+}
+
+.footer {
+	width: 100%;
+	background-color: rgba(86, 82, 72, 255);
+	margin: 0;
+	padding: 3em 0;
+	.copyright {
+		max-width: 960px;
+		color: white;
+		margin: 0 auto;
+	}
+}
